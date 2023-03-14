@@ -1,15 +1,21 @@
+<script setup lang="ts">
+import { ref } from "vue";
+
+const name = ref("name");
+
+const counter = ref(1);
+
+function increment(){
+  counter.value++;
+}
+
+</script>
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Welcome {{ name }}</h1>
+    <p><input type="text" v-model="name"></p>
+    <p v-if="name.length">Full name</p>
+    <p v-else>Short name</p>
+    <p> {{ counter }} <button @click="increment">Increment!</button></p>
   </div>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
